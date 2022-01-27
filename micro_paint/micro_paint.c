@@ -114,14 +114,10 @@ int ft_game(FILE *file, char **str, t_zone *zone)
 
     while ((i = fscanf(file, "%c %f %f %f %f %c\n", &list.type, &list.x, &list.y, &list.width, &list.height, &list.color)) == 6)
     {
-        printf("hello\n");
-        printf("i:%d\n", i);
         if (!ft_checkdata(&list))
             return (0);
-        printf("hello2\n");
         ft_getstr(str, &list, zone);
     }
-    printf("i:%d\n", i);
     if (i != (-1))
         return (0);
     return (1);
@@ -145,10 +141,7 @@ int main(int argc, char **argv)
     t_zone zone;
     char *str;
     FILE *file;
-
-    // file = fopen(argv[1], "r");
-    // printf("file:%p\n", file);
-
+    
     if (argc != 2)
         return (ft_fail("Error: argument\n"));
     if (!(file = fopen(argv[1], "r")))
@@ -158,7 +151,6 @@ int main(int argc, char **argv)
         return (ft_clear(file, NULL) && ft_fail("2 Error: Operation file corrupted\n"));
     int res;
     res = ft_game(file, &str, &zone);
-    printf("res:%d\n", res);
     if (!(res))
         return (ft_clear(file, str) && ft_fail("3 Error: Operation file corrupted\n"));
     ft_printstr(str, &zone);
