@@ -145,13 +145,13 @@ int main(int argc, char **argv)
     if (argc != 2)
         return (ft_fail("Error: argument\n"));
     if (!(file = fopen(argv[1], "r")))
-        return (ft_fail("1 Error: Operation file corrupted\n"));
+        return (ft_fail("Error: Operation file corrupted\n"));
     if (!(str = ft_getlog(file, &zone)))
-        return (ft_clear(file, NULL) && ft_fail("2 Error: Operation file corrupted\n"));
+        return (ft_clear(file, NULL) && ft_fail("Error: Operation file corrupted\n"));
     int res;
     res = ft_game(file, &str, &zone);
     if (!(res))
-        return (ft_clear(file, str) && ft_fail("3 Error: Operation file corrupted\n"));
+        return (ft_clear(file, str) && ft_fail("Error: Operation file corrupted\n"));
     ft_printstr(str, &zone);
     ft_clear(file, str);
     return (0);
